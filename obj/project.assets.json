@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\CS30\\Projects\\Complete Projects\\Black-Jack OOP\\Black-Jack OOP.csproj",
+      "projectUniqueName": "F:\\CS30\\Projects\\Complete Projects\\Black-JackOOP\\Black-Jack OOP.csproj",
       "projectName": "Black-Jack OOP",
-      "projectPath": "F:\\CS30\\Projects\\Complete Projects\\Black-Jack OOP\\Black-Jack OOP.csproj",
+      "projectPath": "F:\\CS30\\Projects\\Complete Projects\\Black-JackOOP\\Black-Jack OOP.csproj",
       "packagesPath": "C:\\Users\\j.antonio3\\.nuget\\packages\\",
-      "outputPath": "F:\\CS30\\Projects\\Complete Projects\\Black-Jack OOP\\obj\\",
+      "outputPath": "F:\\CS30\\Projects\\Complete Projects\\Black-JackOOP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

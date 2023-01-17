@@ -11,8 +11,8 @@ while (game.main == true)
     game.Initialize();
     while (game.complete == false)
     {
-        game.Render();
         game.Update();
+        game.Render();
     }
     game.EndScreen();
 }
@@ -41,42 +41,39 @@ public class Game
         string cardsData = File.ReadAllText("card-data.json");
         deck = JsonSerializer.Deserialize<List<Cards>>(cardsData);
 
+        player = new Hand();
+        dealer = new Hand();
         this.complete = false;
 
-        RandomCard(dealer.hand, 2);
-        RandomCard(player.hand, 2);
+        RandomCard(player, 2);
+        RandomCard(dealer, 2);
     }
 
     public void Update()
     {
         if (dealer.stand == false)
-            {
-                Console.WriteLine("TYPE 1 TO HIT | TYPE 2 TO STAND");
-                string choice = Console.ReadLine();
-                if (choice == "1") {
-                    RandomCard(player.hand, 1);
-                } 
-                else if (choice == "2") 
-                {
-                    if (dealer.sum < 17)
-                    {
-                        dealer.stand = true;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                } 
-            }
-
-        dealer.sum = dealer.hand.Sum(Cards => Cards.Value);
-        player.sum = player.hand.Sum(Cards => Cards.Value);
-
-
-
-        if (dealer.sum >= 21 && player.sum >= 21)
         {
-            this.complete = true;
+            Console.WriteLine("[1] Hit | [2] Stand");
+            HandleInput();
+        }
+
+        dealer.Update();
+        player.Update();
+
+        if (dealer.sum < 21 && player.sum < 21 || dealer.stand == true)
+        {
+            complete = false;
+        }
+        else
+        {
+            complete = true;
+            main = false;
+        }
+
+
+        if (dealer.sum > 17)
+        {
+            dealer.stand = true;
         }
         
         if (complete)
@@ -123,47 +120,71 @@ public class Game
         }  
     }
 
-    public Cards RandomCard(List<Cards> hand, int amount)
+    public void RandomCard(Hand hand, int amount)
     {
-        Cards random = new Cards();
+        int i;
+        // ACE
         for (int n = 0; n < amount; n++)
         {
-            int i = rnd.Next(0, deck.Count);
-            // ACE
-            if (deck[i].Symbol == "A" && (hand.Sum(Cards => Cards.Value) + 11 > 21))
+            i = rnd.Next(0, deck.Count);
+            if (deck[i].Symbol == "A" && (hand.sum + 11 > 21))
             {
-                random = new Cards(deck[i].Type, deck[i].Symbol, 1);
+                hand.AddCard(new Cards(deck[i].Type, deck[i].Symbol, 1));
             }
             else
             {
-            random = deck[i];
+                hand.AddCard(deck[i]);
             }
             deck.RemoveAt(i);
-            return random; 
         }
     }
 
     public void EndScreen()
     {
-
+        if (dealer.sum == 21 && player.sum != 21) 
+        {
+            Console.WriteLine("Lose the dealer got to 21 before you");
+        } 
+        else if (player.sum == 21 && dealer.sum != 21) 
+        {
+            Console.WriteLine("Win you got to 21 before the dealer");
+        } 
+        else if (player.sum > 21 && dealer.sum > 21)
+        {
+            Console.WriteLine("Player Bust");
+        }
+        else if (dealer.sum > 21) 
+        {
+            Console.WriteLine("Dealer Bust");
+        } 
+        else if (player.sum > 21) 
+        {
+            Console.WriteLine("Player Bust");
+        } 
+        else if (player.sum == dealer.sum)
+        {
+            Console.WriteLine("Tie");
+        } 
+        else if (dealer.sum > player.sum)
+        {
+            Console.WriteLine("Dealer Win");
+        } 
+        else if (player.sum > dealer.sum)
+        {
+            Console.WriteLine("Player Win");
+        } 
     }
 
     public void AddDealer()
     {
         if (dealer.sum < 17)
         {
-            RandomCard(dealer.hand, 1);
+            RandomCard(dealer, 1);
         }
         else if (dealer.stand == true && dealer.sum >= 17)
         {
             return;
         } 
-    }
-
-    public void PromptAction()
-    {
-        Console.WriteLine("[1] Hit | [2] Stand");
-        HandleInput();
     }
 
     public void HandleInput()
@@ -173,11 +194,10 @@ public class Game
         switch (key)
         {
             case ConsoleKey.D1:
-                    RandomCard(player.hand, 2);
+                    RandomCard(player, 1);
                     break;
             case ConsoleKey.D2:
-                    this.complete = false;
-                    this.main = false;
+                    player.stand = true;
                     break;
             default: goto GetInput;       
         }
@@ -212,12 +232,17 @@ public class Hand
         this.sum = 0;
         this.stand = false;
         this.info = "";
+        this.hand = new List<Cards>();
     }
     public void AddCard(Cards card)
     {
         hand.Add(card);
     }
     
+    public void Update()
+    {
+        this.sum = this.hand.Sum(Cards => Cards.Value);
+    }
 }
 
 public class Cards

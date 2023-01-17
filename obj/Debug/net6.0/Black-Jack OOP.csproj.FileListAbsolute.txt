@@ -13,3 +13,18 @@ F:\CS30\Projects\Complete Projects\Black-Jack OOP\obj\Debug\net6.0\refint\Black-
 F:\CS30\Projects\Complete Projects\Black-Jack OOP\obj\Debug\net6.0\Black-Jack OOP.pdb
 F:\CS30\Projects\Complete Projects\Black-Jack OOP\obj\Debug\net6.0\Black-Jack OOP.genruntimeconfig.cache
 F:\CS30\Projects\Complete Projects\Black-Jack OOP\obj\Debug\net6.0\ref\Black-Jack OOP.dll
+F:\CS30\Projects\Complete Projects\Black-JackOOP\bin\Debug\net6.0\Black-Jack OOP.exe
+F:\CS30\Projects\Complete Projects\Black-JackOOP\bin\Debug\net6.0\Black-Jack OOP.deps.json
+F:\CS30\Projects\Complete Projects\Black-JackOOP\bin\Debug\net6.0\Black-Jack OOP.runtimeconfig.json
+F:\CS30\Projects\Complete Projects\Black-JackOOP\bin\Debug\net6.0\Black-Jack OOP.dll
+F:\CS30\Projects\Complete Projects\Black-JackOOP\bin\Debug\net6.0\Black-Jack OOP.pdb
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.csproj.AssemblyReference.cache
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.GeneratedMSBuildEditorConfig.editorconfig
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.AssemblyInfoInputs.cache
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.AssemblyInfo.cs
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.csproj.CoreCompileInputs.cache
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.dll
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\refint\Black-Jack OOP.dll
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.pdb
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\Black-Jack OOP.genruntimeconfig.cache
+F:\CS30\Projects\Complete Projects\Black-JackOOP\obj\Debug\net6.0\ref\Black-Jack OOP.dll
